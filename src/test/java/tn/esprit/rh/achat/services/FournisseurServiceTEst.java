@@ -28,8 +28,8 @@ public class FournisseurServiceTEst {
     FournisseurRepository fournisseurRepository;
     @InjectMocks
     FournisseurServiceImpl fournisseurService;
-    Fournisseur f1 = new Fournisseur(12L, "Code Safa", "Libelle HLK", CategorieFournisseur.ORDINAIRE);
-    Fournisseur f2 = new Fournisseur(22L, "Code Safa2", "Libelle HLK2", CategorieFournisseur.ORDINAIRE);
+    Fournisseur f1 = new Fournisseur(12L, "Code ahmed", "Libelle 1", CategorieFournisseur.ORDINAIRE);
+    Fournisseur f2 = new Fournisseur(22L, "Code ahmeed", "Libelle 2", CategorieFournisseur.ORDINAIRE);
     List<Fournisseur> listFournisseurs = new ArrayList<Fournisseur>() {
         {
             add(f1);
