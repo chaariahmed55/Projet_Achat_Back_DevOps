@@ -12,9 +12,10 @@ import java.util.List;
 @RestController
 @Api(tags = "Gestion des categories Produit")
 @RequestMapping("/categorieProduit")
-@AllArgsConstructor
+
 public class CategorieProduitController {
 
+@Autowired
 	ICategorieProduitService categorieProduitService;
 
 	/**
