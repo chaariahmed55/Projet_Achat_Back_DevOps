@@ -29,11 +29,7 @@ public class FournisseurServiceImpl implements IFournisseurService {
 
 	@Override
 	public List<Fournisseur> retrieveAllFournisseurs() {
-		List<Fournisseur> fournisseurs = (List<Fournisseur>) fournisseurRepository.findAll();
-		for (Fournisseur fournisseur : fournisseurs) {
-			log.info(" fournisseur : " + fournisseur);
-		}
-		return fournisseurs;
+		return fournisseurRepository.findAll();
 	}
 
 
@@ -67,9 +63,7 @@ public class FournisseurServiceImpl implements IFournisseurService {
 
 	@Override
 	public Fournisseur retrieveFournisseur(Long fournisseurId) {
-
-		Fournisseur fournisseur = fournisseurRepository.findById(fournisseurId).orElse(null);
-		return fournisseur;
+		return fournisseurRepository.findById(fournisseurId).orElse(null);
 	}
 
 	@Override

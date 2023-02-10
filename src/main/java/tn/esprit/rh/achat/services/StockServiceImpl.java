@@ -22,14 +22,7 @@ public class StockServiceImpl implements IStockService {
 	public List<Stock> retrieveAllStocks() {
 		// récuperer la date à l'instant t1
 		log.info("In method retrieveAllStocks");
-		List<Stock> stocks = (List<Stock>) stockRepository.findAll();
-		for (Stock stock : stocks) {
-			log.info(" Stock : " + stock);
-		}
-		log.info("out of method retrieveAllStocks");
-		// récuperer la date à l'instant t2
-		// temps execution = t2 - t1
-		return stocks;
+		return stockRepository.findAll();
 	}
 
 	@Override
@@ -70,18 +63,25 @@ public class StockServiceImpl implements IStockService {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		Date now = new Date();
 		String msgDate = sdf.format(now);
-		String finalMessage = "";
+		StringBuilder finalMessage = new StringBuilder();
 		String newLine = System.getProperty("line.separator");
-		List<Stock> stocksEnRouge = (List<Stock>) stockRepository.retrieveStatusStock();
-		for (int i = 0; i < stocksEnRouge.size(); i++) {
-			finalMessage = newLine + finalMessage + msgDate + newLine + ": le stock "
-					+ stocksEnRouge.get(i).getLibelleStock() + " a une quantité de " + stocksEnRouge.get(i).getQte()
-					+ " inférieur à la quantité minimale a ne pas dépasser de " + stocksEnRouge.get(i).getQteMin()
-					+ newLine;
+		List<Stock> stocksEnRouge = stockRepository.retrieveStatusStock();
 
+		for (int i = 0; i < stocksEnRouge.size(); i++) {
+			finalMessage.append(newLine);
+			finalMessage.append(finalMessage);
+			finalMessage.append(msgDate);
+			finalMessage.append(newLine);
+			finalMessage.append(": le stock ");
+			finalMessage.append(stocksEnRouge.get(i).getLibelleStock());
+			finalMessage.append(" a une quantité de ");
+			finalMessage.append(stocksEnRouge.get(i).getQte());
+			finalMessage.append(" inférieur à la quantité minimale a ne pas dépasser de ");
+			finalMessage.append(stocksEnRouge.get(i).getQteMin());
+			finalMessage.append(newLine);
 		}
-		log.info(finalMessage);
-		return finalMessage;
+		log.info(finalMessage.toString());
+		return finalMessage.toString();
 	}
 
 }

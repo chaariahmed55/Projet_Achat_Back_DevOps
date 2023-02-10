@@ -1,5 +1,6 @@
 package tn.esprit.rh.achat.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.rh.achat.entities.SecteurActivite;
@@ -8,6 +9,7 @@ import tn.esprit.rh.achat.repositories.SecteurActiviteRepository;
 import java.util.List;
 
 @Service
+@Slf4j
 public class SecteurActiviteServiceImpl implements ISecteurActiviteService{
 
 	@Autowired
@@ -20,6 +22,7 @@ public class SecteurActiviteServiceImpl implements ISecteurActiviteService{
 	@Override
 	public SecteurActivite addSecteurActivite(SecteurActivite sa) {
 		secteurActiviteRepository.save(sa);
+		log.info("secteur activite is added successfully");
 		return sa;
 	}
 
@@ -32,13 +35,13 @@ public class SecteurActiviteServiceImpl implements ISecteurActiviteService{
 	@Override
 	public SecteurActivite updateSecteurActivite(SecteurActivite sa) {
 		secteurActiviteRepository.save(sa);
+		log.info("secteur activite is updated successfully");
 		return sa;
 	}
 
 	@Override
 	public SecteurActivite retrieveSecteurActivite(Long id) {
-		SecteurActivite secteurActivite = secteurActiviteRepository.findById(id).orElse(null);
-		return secteurActivite;
+		return secteurActiviteRepository.findById(id).orElse(null);
 	}
 
 }

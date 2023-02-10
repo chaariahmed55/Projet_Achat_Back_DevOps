@@ -4,17 +4,15 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.rh.achat.entities.CategorieFournisseur;
 import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.repositories.FournisseurRepository;
-import tn.esprit.rh.achat.services.FournisseurServiceImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import static org.junit.Assert.assertEquals;
-import static tn.esprit.rh.achat.entities.CategorieFournisseur.ORDINAIRE;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.times;
 import org.junit.runner.RunWith;
@@ -22,14 +20,14 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
-public class FournisseurServiceTEst {
+public class FournisseurServiceTest {
 
     @Mock
     FournisseurRepository fournisseurRepository;
     @InjectMocks
     FournisseurServiceImpl fournisseurService;
     Fournisseur f1 = new Fournisseur(12L, "Code ahmed", "Libelle 1", CategorieFournisseur.ORDINAIRE);
-    Fournisseur f2 = new Fournisseur(22L, "Code ahmeed", "Libelle 2", CategorieFournisseur.ORDINAIRE);
+    Fournisseur f2 = new Fournisseur(22L, "Code ahmeed", "Libelle   2", CategorieFournisseur.ORDINAIRE);
     List<Fournisseur> listFournisseurs = new ArrayList<Fournisseur>() {
         {
             add(f1);
