@@ -8,7 +8,6 @@ import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
 import tn.esprit.rh.achat.repositories.ProduitRepository;
 import tn.esprit.rh.achat.repositories.StockRepository;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -25,11 +24,7 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Override
 	public List<Produit> retrieveAllProduits() {
-		List<Produit> produits = (List<Produit>) produitRepository.findAll();
-		for (Produit produit : produits) {
-			log.info(" Produit : " + produit);
-		}
-		return produits;
+		return produitRepository.findAll();
 	}
 
 	@Transactional
@@ -37,8 +32,6 @@ public class ProduitServiceImpl implements IProduitService {
 		produitRepository.save(p);
 		return p;
 	}
-
-	
 
 	@Override
 	public void deleteProduit(Long produitId) {
