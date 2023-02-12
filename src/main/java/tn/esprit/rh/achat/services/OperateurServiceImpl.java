@@ -1,5 +1,6 @@
 package tn.esprit.rh.achat.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.rh.achat.entities.Operateur;
@@ -8,6 +9,7 @@ import tn.esprit.rh.achat.repositories.OperateurRepository;
 import java.util.List;
 
 @Service
+@Slf4j
 public class OperateurServiceImpl implements IOperateurService {
 
 	@Autowired
@@ -18,7 +20,7 @@ public class OperateurServiceImpl implements IOperateurService {
 	}
 
 	@Override
-	public Operateur addOperateur(Operateur o) {
+	public Operateur saveOperateur(Operateur o) {
 		operateurRepository.save(o);
 		return o;
 	}
@@ -26,13 +28,6 @@ public class OperateurServiceImpl implements IOperateurService {
 	@Override
 	public void deleteOperateur(Long id) {
 		operateurRepository.deleteById(id);
-		
-	}
-
-	@Override
-	public Operateur updateOperateur(Operateur o) {
-		operateurRepository.save(o);
-		return o;
 	}
 
 	@Override
