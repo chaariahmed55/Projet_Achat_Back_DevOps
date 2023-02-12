@@ -17,42 +17,70 @@ public class FournisseurRestController {
 	@Autowired
 	IFournisseurService fournisseurService;
 
-	// http://localhost:8089/SpringMVC/fournisseur/retrieve-all-fournisseurs
+
+
+	/**
+	 * http://localhost:8089/SpringMVC/fournisseur/retrieve-all-fournisseurs
+ 	 * @return
+	 */
 	@GetMapping("/retrieve-all-fournisseurs")
 	@ResponseBody
 	public List<Fournisseur> getFournisseurs() {
 		return fournisseurService.retrieveAllFournisseurs();
 	}
 
-	// http://localhost:8089/SpringMVC/fournisseur/retrieve-fournisseur/8
+
+
+	/**
+	 * http://localhost:8089/SpringMVC/fournisseur/retrieve-fournisseur/8
+	 * @param fournisseurId
+	 * @return
+	 */
 	@GetMapping("/retrieve-fournisseur/{fournisseur-id}")
 	@ResponseBody
 	public Fournisseur retrieveFournisseur(@PathVariable("fournisseur-id") Long fournisseurId) {
 		return fournisseurService.retrieveFournisseur(fournisseurId);
 	}
 
-	// http://localhost:8089/SpringMVC/fournisseur/add-fournisseur
+
+
+	/**
+	 * http://localhost:8089/SpringMVC/fournisseur/add-fournisseur
+	 * @param f
+	 * @return
+	 */
 	@PostMapping("/add-fournisseur")
 	@ResponseBody
 	public Fournisseur addFournisseur(@RequestBody Fournisseur f) {
 		return fournisseurService.addFournisseur(f);
 	}
 
-	// http://localhost:8089/SpringMVC/fournisseur/remove-fournisseur/{fournisseur-id}
+	/**
+	 * http://localhost:8089/SpringMVC/fournisseur/remove-fournisseur/{fournisseur-id}
+ 	 * @param fournisseurId
+	 */
 	@DeleteMapping("/remove-fournisseur/{fournisseur-id}")
 	@ResponseBody
 	public void removeFournisseur(@PathVariable("fournisseur-id") Long fournisseurId) {
 		fournisseurService.deleteFournisseur(fournisseurId);
 	}
 
-	// http://localhost:8089/SpringMVC/fournisseur/modify-fournisseur
+	/**
+	 * http://localhost:8089/SpringMVC/fournisseur/modify-fournisseur
+ 	 * @param fournisseur
+	 * @return
+	 */
 	@PutMapping("/modify-fournisseur")
 	@ResponseBody
 	public Fournisseur modifyFournisseur(@RequestBody Fournisseur fournisseur) {
 		return fournisseurService.updateFournisseur(fournisseur);
 	}
 
-	// http://localhost:8089/SpringMVC/fournisseur/assignSecteurActiviteToFournisseur/1/5
+	/**
+	 * http://localhost:8089/SpringMVC/fournisseur/assignSecteurActiviteToFournisseur/1/5
+	 * @param idSecteurActivite
+	 * @param idFournisseur
+	 */
 		@PutMapping(value = "/assignSecteurActiviteToFournisseur/{idSecteurActivite}/{idFournisseur}")
 		public void assignProduitToStock(@PathVariable("idSecteurActivite") Long idSecteurActivite, @PathVariable("idFournisseur") Long idFournisseur) {
 			fournisseurService.assignSecteurActiviteToFournisseur(idSecteurActivite, idFournisseur);

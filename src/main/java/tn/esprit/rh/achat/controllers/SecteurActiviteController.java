@@ -38,7 +38,13 @@ public class SecteurActiviteController {
 		return secteurActiviteService.addSecteurActivite(sa);
 	}
 
-	// http://localhost:8089/SpringMVC/secteurActivite/remove-secteurActivite/{secteurActivite-id}
+	/**
+	 *
+	 * http://localhost:8089/SpringMVC/secteurActivite/remove-secteurActivite/{secteurActivite-id}
+	 * @param secteurActiviteId
+	 */
+
+
 	@DeleteMapping("/remove-secteurActivite/{secteurActivite-id}")
 	@ResponseBody
 	public void removeSecteurActivite(@PathVariable("secteurActivite-id") Long secteurActiviteId) {
