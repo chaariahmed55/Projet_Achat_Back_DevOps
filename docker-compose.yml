@@ -17,7 +17,7 @@ services:
 
 
   spring_app:
-    image: ahmedchaari/achatproject:latest
+    image: ahmedchaari55/achatproject:latest
     container_name: achatproject
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
